@@ -24,6 +24,5 @@ export default new Vuex.Store({
   modules: {
     app
   },
-  strict: debug,
   plugins: [vuexLocal.plugin, ...debugPlugin]
 });

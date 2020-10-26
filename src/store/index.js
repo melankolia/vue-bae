@@ -11,6 +11,7 @@ const debugPlugin = debug === "true" ? [createLogger({})] : [];
 Vue.use(Vuex);
 
 const vuexLocal = new VuexPersistence({
+  strictMode: debug,
   storage: window.localStorage,
   reducer(val) {
     if (val.auth.token === null) {
@@ -24,5 +25,6 @@ export default new Vuex.Store({
   modules: {
     app
   },
+  strict: debug,
   plugins: [vuexLocal.plugin, ...debugPlugin]
 });

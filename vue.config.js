@@ -1,6 +1,16 @@
-// const path = require('path');
+const path = require('path');
 
 module.exports = {
     /* ... other config ... */
-    transpileDependencies: ['vuex-persist']
+    transpileDependencies: ['vuex-persist'],
+    module: {
+        rules: [
+            {
+              test: /\.js$/,
+              loader: 'babel-loader',
+              include: [path.resolve('src'), path.resolve('test'), path.resolve('node_modules/webpack-dev-server/client'),
+                path.resolve('node_modules/vuex-persist/dist/esm/index.js')]
+            },
+        ]
+    }
   }
